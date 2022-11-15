@@ -11,6 +11,8 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -54,6 +56,7 @@ fun DefaultPreview() {
         ){
             Text(
                 text = "Exclusive: Bill Gates in Kenya To Hold Series Of Public Engagements",
+                color = Color(233, 150, 122),
                 style = MaterialTheme.typography.h4,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier
@@ -84,6 +87,10 @@ fun DefaultPreview() {
                 text = "On Thursday, November 17, Bill Gates is expected to give a talk on Innovating for Food" +
                         " Security and Climate Change in Africa. The event will be streamed live from the University of Nairobi.",
                 modifier = Modifier.padding(8.dp)
+            )
+            Text(
+                text = "ComposeChallenge done by Wahome",
+                color= Color(0, 100, 100)
             )
         }
     }
