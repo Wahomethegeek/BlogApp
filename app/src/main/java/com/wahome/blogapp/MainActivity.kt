@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -58,7 +59,8 @@ fun DefaultPreview() {
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
                 .fillMaxSize()
-                .padding(8.dp)
+
+                .background(Color(0, 100, 100))
         )
         {
                Text(
@@ -66,7 +68,7 @@ fun DefaultPreview() {
                 color = Color(233, 150, 122),
                 style = MaterialTheme.typography.h4,
                 fontWeight = FontWeight.Bold,
-                modifier = Modifier
+                modifier = Modifier.padding(8.dp)
                     .fillMaxWidth()
 
             )
@@ -103,7 +105,7 @@ fun DefaultPreview() {
             )
             Text(
                 text = "ComposeChallenge done by Wahome",
-                color= Color(0, 100, 100)
+                color= Color(233, 150, 122)
             )
         }
     }
