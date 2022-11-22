@@ -8,7 +8,9 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -17,6 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.Role.Companion.Image
 import androidx.compose.ui.text.TextStyle
@@ -24,6 +27,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.wahome.blogapp.ui.theme.BlogAppTheme
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,15 +45,6 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-@Composable
-inline fun Column(
-    modifier: Modifier = Modifier,
-    verticalArrangement: Arrangement.Vertical = Arrangement.Top,
-    horizontalAlignment: Alignment.Horizontal = Alignment.Start,
-    content: @Composable ColumnScope.() -> Unit
-) {
-}
-
 
 @Preview(showBackground = true)
 @Composable
@@ -59,6 +54,7 @@ fun DefaultPreview() {
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
                 .fillMaxSize()
+               .verticalScroll(rememberScrollState())
 
                 .background(Color(0, 100, 100))
         )
@@ -68,7 +64,8 @@ fun DefaultPreview() {
                 color = Color(233, 150, 122),
                 style = MaterialTheme.typography.h4,
                 fontWeight = FontWeight.Bold,
-                modifier = Modifier.padding(8.dp)
+                modifier = Modifier
+                    .padding(8.dp)
                     .fillMaxWidth()
 
             )
@@ -76,6 +73,10 @@ fun DefaultPreview() {
                 painter = painterResource(id = R.drawable.news_banner),
                 contentDescription = null,
                 modifier = Modifier.clip(RoundedCornerShape(10.dp))
+                    .fillMaxWidth()
+                    .height(200.dp),
+
+                    contentScale = ContentScale.Crop
 
             )
             Text(
@@ -110,3 +111,5 @@ fun DefaultPreview() {
         }
     }
 }
+
+
